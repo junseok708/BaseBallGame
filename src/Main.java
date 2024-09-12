@@ -13,16 +13,18 @@ public class Main {
         int count = 0;
         int random = 0;
 
-        while (true){
+        String numCheck = "^[1-9]*$";
+
+        while (true) {
             count++;
             random = (int) rd.nextInt(9) + 1;
-            if(correct.contains(Integer.toString(random))){
+            if (correct.contains(Integer.toString(random))) {
                 count--;
                 System.out.println(random);
-            }else {
-                correct+=random;
+            } else {
+                correct += random;
             }
-            if(count==number){
+            if (count == number) {
                 break;
             }
         }
@@ -30,10 +32,38 @@ public class Main {
         System.out.println(correct);
 
         String answer = sc.nextLine();
-        if (!answer.equals(correct)) {
 
+        if (!answer.matches(numCheck)) {
+            System.out.println("숫자만 입력해주세요");
+            answer =  sc.nextLine();
+        } else {
+            char num1;
+            char num2;
+            boolean flog = true;
+            for (int i = 0; i < answer.length(); i++) {
+                for (int j = i + 1; j < answer.length(); j++) {
+                    num1 = answer.charAt(i);
+                    num2 = answer.charAt(j);
+                    System.out.println(answer.charAt(i));
+                    System.out.println(answer.charAt(j));
+                    if (num1 == num2) {
+                        System.out.println("중복");
+                        answer = sc.nextLine();
+                        flog = false;
+                        break;
+                    }
+                }
+
+                if (flog == false) {
+                    break;
+                }
+            }
+        }
+
+        if (!answer.equals(correct)) {
             int strikeCount = 0;
             int bollCount = 0;
+            System.out.println(answer);
             for (int i = 0; i < answer.length(); i++) {
                 for (int j = 0; j < correct.length(); j++) {
                     if (correct.charAt(j) == answer.charAt(i)) {
