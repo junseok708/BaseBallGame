@@ -4,14 +4,14 @@ public class StartGame {
     Scanner sc = new Scanner(System.in);
     Game game = new Game();
 
-    public void Strat() throws InterruptedException {
+    public void Strat() throws Exception {
         while (true) {
             Setting();
             String number = sc.nextLine();
             switch (number){
                 case "1" :
                     System.out.println("< 게임 시작>");
-                    String correct = game.correct();
+                    String correct = game.correct(3);
                     game.strat(correct);
                     break;
                 case "2" :
@@ -31,8 +31,8 @@ public class StartGame {
                     System.exit(0);
                     break;
                 default:
-                    System.out.println("잘못된 입력입니다!");
-                    System.out.println("다시 입력해주세요.");
+                    throw new InoutExceotion("잘못된 입력입니다!\n 다시 입력해주세요");
+
             }
         }
 

@@ -3,16 +3,16 @@ import java.util.Scanner;
 
 public class Main {
 
-
     public static void main(String[] args) {
         StartGame SG = new StartGame();
         try {
-           SG.Strat();
-        }catch (Exception e){
+            SG.Strat();
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
-    public static void Lv_01_02(){
+
+    public static void Lv_01_02() {
 
         Scanner sc = new Scanner(System.in);
         Random rd = new Random();
@@ -21,7 +21,7 @@ public class Main {
         String correct = "";
         int count = 0;
         int random = 0;
-        int tryNum=0;
+        int tryNum = 0;
 
         String numCheck = "^[1-9]*$";
 
@@ -49,7 +49,7 @@ public class Main {
                 System.out.println("숫자만 입력해주세요");
                 answer = sc.nextLine();
             } else {
-                if(answer.length() == number) {
+                if (answer.length() == number) {
                     char num1;
                     char num2;
                     boolean flog = true;
@@ -70,7 +70,7 @@ public class Main {
                             break;
                         }
                     }
-                }else {
+                } else {
                     System.out.println("올바르지 않은 입력값입니다.");
                     answer = sc.nextLine();
                 }
@@ -102,7 +102,7 @@ public class Main {
             } else {
                 System.out.println("축하 합니다~");
                 System.out.println("승리 하셨습니다!!");
-                System.out.println("시도 횟수 : "+tryNum);
+                System.out.println("시도 횟수 : " + tryNum);
                 break;
             }
         }
