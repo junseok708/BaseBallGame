@@ -1,39 +1,19 @@
-import java.util.Random;
+
 import java.util.Scanner;
 
 public class Game {
-    Random rd = new Random();
     Scanner sc = new Scanner(System.in);
+    GameAnswer gameAnswer =new GameAnswer();
+    GameRecord gameRecord = new GameRecord();
     Valid valid = new Valid();
 
-    String correct = "";
-    int tryNum = 0;
-    int count = 0;
-    int random = 0;
-    int number = 3;
+    private int tryNum = 0;
 
 
-    public String correct(int num) {
-        number = num;
-        while (true) {
-            count++;
-            random = (int) rd.nextInt(9) + 1;
-            if (correct.contains(Integer.toString(random))) {
-                count--;
-            } else {
-                correct += Integer.toString(random);
-            }
-            if (count == number) {
-                break;
-            }
-        }
-        System.out.println(correct);
-        return correct;
-    }
-
-    public void strat(String correct){
+    public void start(String correct,Integer number){
         System.out.println("< 게임을 시작 합니다 >");
-        System.out.println("숫자를 입력 해주세요");
+        System.out.println(number+"자리 숫자를 입력 해주세요");
+
         while (true) {
             String answer = sc.nextLine();
             if (valid.check(answer, number)) {
@@ -66,10 +46,18 @@ public class Game {
                     System.out.println("승리 하셨습니다!!");
                     System.out.println("시도 횟수 : " + tryNum);
                     System.out.println("================");
-                    System.out.println("================");
+                    gameAnswer.setAnswer("");
                     break;
                 }
             }
         }
+    }
+
+    public void setTryNum(int tryNum) {
+        this.tryNum = tryNum;
+    }
+
+    public int getTryNum() {
+        return tryNum;
     }
 }

@@ -2,7 +2,7 @@ public class Valid {
 
     String numCheck = "^[1-9]*$";
 
-    public boolean check(String answer, int number)  {
+    public boolean check(String answer, int number) {
         boolean check = false;
         if (!answer.matches(numCheck)) {
             System.out.println("숫자만 입력해주세요");
@@ -20,7 +20,7 @@ public class Valid {
                             check = false;
                             flog = false;
                             break;
-                        }else {
+                        } else {
                             check = true;
                         }
                     }
@@ -31,7 +31,6 @@ public class Valid {
             } else {
                 System.out.println("올바르지 않은 입력값입니다.");
             }
-
         }
         return check;
     }

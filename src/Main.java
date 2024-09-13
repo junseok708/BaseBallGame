@@ -4,9 +4,9 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        StartGame SG = new StartGame();
+        StartGame startGame = new StartGame();
         try {
-            SG.Strat();
+            startGame.start();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
