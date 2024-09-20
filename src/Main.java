@@ -5,7 +5,7 @@ public class Main {
 
     public static void main(String[] args) {
         StartGame startGame = new StartGame();
-        //.게임 시작
+        // 게임 시작
         startGame.start();
     }
 }
